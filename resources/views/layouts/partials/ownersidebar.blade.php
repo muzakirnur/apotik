@@ -37,9 +37,21 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/tables.html">
-                <i class="ni ni-bullet-list-67 text-default"></i>
-                <span class="nav-link-text">Tables</span>
+              <a class="nav-link {{  request()->routeIs('obat.*') ? 'active' : '' }}" href="{{ route('obat.index')}}">
+                <i class="ni ni-atom text-success"></i>
+                <span class="nav-link-text">Obat</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{  request()->routeIs('inventory.*') ? 'active' : '' }}" href="#">
+                <i class="ni ni-books text-info"></i>
+                <span class="nav-link-text">Inventory</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{  request()->routeIs('transaksi.*') ? 'active' : '' }}" href="#">
+                <i class="ni ni-chart-bar-32 text-default"></i>
+                <span class="nav-link-text">Transaksi</span>
               </a>
             </li>
             {{-- <li class="nav-item">

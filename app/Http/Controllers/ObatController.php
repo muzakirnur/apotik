@@ -14,8 +14,8 @@ class ObatController extends Controller
      */
     public function index()
     {
-        $data = Obat::all();
-        return view('obat.index');
+        $obat = Obat::all();
+        return view('layouts.owner.obat.index', compact('obat'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ObatController extends Controller
      */
     public function create()
     {
-        return view('obat.create');
+        return view('layouts.owner.obat.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class ObatController extends Controller
     {
         $obat = Obat::find($id);
 
-        return view('obat.show', compact('obat'));
+        return view('layouts.owner.obat.show', compact('obat'));
     }
 
     /**
@@ -63,7 +63,7 @@ class ObatController extends Controller
     {
         $obat = Obat::find($id);
 
-        return view('obat.edit', compact('obat'));
+        return view('layouts.owner.obat.edit', compact('obat'));
     }
 
     /**

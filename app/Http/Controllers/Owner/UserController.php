@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,8 +19,8 @@ class UserController extends Controller
     public function index()
     {
         // Fungsi untuk menampilkan tabel user
-        
-        $user = User::all();
+
+        $user = User::all()->except(Auth::id());
         $page = "Daftar User";
         return view('layouts.owner.user.index', compact('user', 'page'));
     }
@@ -73,7 +74,7 @@ class UserController extends Controller
         // Menampilkan User yang dipilih berdasarkan id
 
         $user = User::find($id);
-        return view('layouts.owner.user.show',compact('user'));
+        return view('layouts.owner.user.show', compact('user'));
     }
 
     /**

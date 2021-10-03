@@ -3,6 +3,7 @@
 use App\Http\Controllers\GudangController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KasirController;
+use App\Http\Controllers\ObatController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\Owner\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['owner'])->group(function () {
         Route::get('owner/dashboard', [OwnerController::class, 'index'])->name('index');
         Route::resource('owner/user', UserController::class);
+        Route::resource('owner/obat', ObatController::class);
     });
 
     // Mengontroll Route untuk Kasir
@@ -47,5 +49,5 @@ Route::middleware('auth')->group(function () {
         Route::get('gudang/dashboard', [GudangController::class, 'index'])->name('index');
     });
 
-    Route::get('logout', [HomeController::class,'logout'])->name('logout');
+    Route::get('logout', [HomeController::class, 'logout'])->name('logout');
 });
